@@ -37,11 +37,19 @@ def serve_partial_file_request(request, headers, file, start, end, callbacks=[])
                     headers=headers, status=206)
 
 
-def serve_request(request, connection, _id=None):
+def serve_request(request, connection, _id=None, filename=None):
     fs = GridFS(connection[settings.MONGO_DB_NAME])
-    try:
-        file = fs.get(_id)
-    except:
+    if _id:
+        try:
+            file = fs.get(_id)
+        except:
+            abort(404)
+    elif filename:
+        try:
+            file = fs.get_last_version(filename)
+        except:
+            abort(404)
+    else:
         abort(404)
 
     if getattr(file, 'pending', False):
@@ -91,6 +99,7 @@ def serve_request(request, connection, _id=None):
 
 url_map = Map([
     Rule('/<ObjectId:_id>'),
+    Rule('/<path:filename>'),
 ], converters={
     'ObjectId': ObjectIdConverter,
 })

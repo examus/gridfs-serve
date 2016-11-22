@@ -22,7 +22,8 @@ class Test(unittest.TestCase):
 
     def put_file(self, path):
         f = open(path, 'rb')
-        filename = os.path.basename(path)
+
+        filename = os.path.relpath(path)
         return self.fs.put(f.read(), filename=filename)
 
     def get_file(self, _id, headers={}):
@@ -35,6 +36,10 @@ class Test(unittest.TestCase):
         file_id = self.put_file(file_path)
 
         r = self.app.get('/%s' % file_id)
+        content = StringIO(r._app_iter[0])
+        self.assertEquals(open(file_path).read(), content.read())
+
+        r = self.app.get('/%s' % os.path.relpath(file_path))
         content = StringIO(r._app_iter[0])
         self.assertEquals(open(file_path).read(), content.read())
 
