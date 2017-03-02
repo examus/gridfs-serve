@@ -11,6 +11,9 @@ MONGO_REPLICATION_ON = True
 MONGO_REPLICA_SET_URI = 'localhost:27017,localhost:27018'
 MONGO_REPLICA_SET_NAME = 'test_set'
 MONGO_READ_PREFERENCE = ReadPreference.PRIMARY_PREFERRED
+MONGO_PASSWORD = None
+MONGO_USER = None
+
 
 # App section for builtin server
 APP_HOST = '0.0.0.0'
