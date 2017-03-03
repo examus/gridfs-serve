@@ -4,15 +4,17 @@ from pymongo.read_preferences import ReadPreference
 
 
 # Mongo section
-MONGO_HOST = 'localhost'
-MONGO_PORT = 27017
-MONGO_DB_NAME = 'grid_fs'
-MONGO_REPLICATION_ON = True
-MONGO_REPLICA_SET_URI = 'localhost:27017,localhost:27018'
-MONGO_REPLICA_SET_NAME = 'test_set'
-MONGO_READ_PREFERENCE = ReadPreference.PRIMARY_PREFERRED
-MONGO_PASSWORD = None
-MONGO_USER = None
+# MONGO_HOST = 'localhost'
+# MONGO_PORT = 27017
+# MONGO_DB_NAME = 'grid_fs'
+
+# MONGO_REPLICATION_ON = True
+# MONGO_REPLICA_SET_URI = 'localhost:27017,localhost:27018'
+# MONGO_REPLICA_SET_NAME = 'test_set'
+# MONGO_READ_PREFERENCE = ReadPreference.PRIMARY_PREFERRED
+
+# MONGO_PASSWORD = None
+# MONGO_USER = None
 
 
 MONGO_DB_URL = 'mongodb://localhost:27017,localhost:27018/grid_fs?' \
