@@ -2,3 +2,4 @@ Werkzeug==0.11.11
 pymongo==3.4.0
 WebTest==2.0.9
 Unidecode==0.04.19
+ddtrace==0.7.0

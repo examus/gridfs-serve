@@ -5,4 +5,4 @@ ADD requirements.txt requirements.txt
 RUN pip install uwsgi
 RUN pip install -r requirements.txt
 COPY . .
-CMD uwsgi --socket=:8001 --module=wsgi:app
+CMD ddtrace-run uwsgi --socket=:8001 --module=wsgi:app
