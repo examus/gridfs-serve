@@ -1,4 +1,4 @@
 Werkzeug==0.12.2
 pymongo==3.5.1
-WebTest==2.0.9
+WebTest==2.0.29
 Unidecode==0.04.19
